@@ -6,10 +6,10 @@ default: &default
 
 development:
   <<: *default
-  database: protocol_development
+  database: protocom_development
   username: <%= `whoami`.chomp %>
 
 test:
   <<: *default
-  database: protocol_test
+  database: protocom_test
   username: <%= `whoami`.chomp %>
