@@ -35,10 +35,10 @@ def store_protocol(record)
   unless record['materials_and_methods'].nil?
     Protocol.where(plos_id: record['id']).first_or_create do |protocol|
       protocol.title           = record['title']
-      protocol.alternate_title = record['alternate_title']
-      protocol.author          = record['author']
+      protocol.alternate_title = record['alternate_title'].first
+      protocol.author          = record['author'].join(', ')
       protocol.journal         = record['journal']
-      protocol.method          = record['materials_and_methods']
+      protocol.method          = record['materials_and_methods'].first
       puts "#{record['id']} created"
     end
   end
