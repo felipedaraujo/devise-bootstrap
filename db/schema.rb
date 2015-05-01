@@ -11,18 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429194248) do
+ActiveRecord::Schema.define(version: 20150501142130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "protocols", force: :cascade do |t|
-    t.string   "name"
-    t.string   "procedure"
-    t.string   "source"
+    t.string   "title"
+    t.string   "method"
+    t.string   "journal"
     t.string   "author"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "plos_id"
+    t.string   "alternate_title"
   end
 
 end
