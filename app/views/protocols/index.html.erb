@@ -1,33 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Protocols</h1>
+<h1 class="text-center">Listing Protocols</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Procedure</th>
-      <th>Source</th>
-      <th>Author</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @protocols.each do |protocol| %>
+  <div class="row">
+    <div class="container">
+      <h3><%= protocol.title %></h3>
+      <h5><strong>Author(s):</strong> <%= protocol.author %></h5>
+      <p>
+        <%= truncate(protocol.method, length: 700, omission: '... ') %>
+        <%= link_to 'read more', protocol %>
+      </p>
+      <p>Journal: <%= protocol.journal %></p>
+      <div class="pull-right">
+        <p>
+          <%= link_to 'Edit', edit_protocol_path(protocol), class: "btn btn-primary" %>
+          <%= link_to 'Delete', protocol, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>
 
-  <tbody>
-    <% @protocols.each do |protocol| %>
-      <tr>
-        <td><%= protocol.name %></td>
-        <td><%= protocol.procedure %></td>
-        <td><%= protocol.source %></td>
-        <td><%= protocol.author %></td>
-        <td><%= link_to 'Show', protocol %></td>
-        <td><%= link_to 'Edit', edit_protocol_path(protocol) %></td>
-        <td><%= link_to 'Destroy', protocol, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="container">
+    <%= link_to 'New Protocol', new_protocol_path, class: "btn btn-primary pull-right" %>
+  </div>
+</div>
 
-<br>
 
-<%= link_to 'New Protocol', new_protocol_path %>

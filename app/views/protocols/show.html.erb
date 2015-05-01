@@ -1,24 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @protocol.name %>
-</p>
+    <h3><%= @protocol.title %></h3>
 
-<p>
-  <strong>Procedure:</strong>
-  <%= @protocol.procedure %>
-</p>
+    <p>
+      <strong>Author(s):</strong>
+      <%= @protocol.author %>
+    </p>
 
-<p>
-  <strong>Source:</strong>
-  <%= @protocol.source %>
-</p>
+    <p>
+      <strong>Method:</strong>
+      <%= @protocol.method %>
+    </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @protocol.author %>
-</p>
-
-<%= link_to 'Edit', edit_protocol_path(@protocol) %> |
-<%= link_to 'Back', protocols_path %>
+    <p>
+      <strong>Journal:</strong>
+      <%= @protocol.journal %>
+    </p>
+    <div class="pull-right">
+      <%= link_to 'Edit', edit_protocol_path(@protocol), class: "btn btn-primary" %>
+      <%= link_to 'Back', protocols_path, class: "btn btn-default" %>
+    </div>
+  </div>
+</div>
