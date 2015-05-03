@@ -1,16 +1,14 @@
-<div class="row">
-  <div class="container">
-    <h3><%= protocol.title %></h3>
-    <h5><strong>Author(s):</strong> <%= protocol.author %></h5>
-    <p>      
-      <%= shorten_method(protocol.method, protocol)%> 
+<div class="container">
+  <h3><%= protocol.title %></h3>
+  <h5><strong>Author(s):</strong> <%= protocol.author %></h5>
+  <p>      
+    <%= shorten_method(protocol.method, protocol)%> 
+  </p>
+  <p>Journal: <%= protocol.journal %></p>
+  <div class="pull-right">
+    <p>
+      <%= link_to 'Edit', edit_protocol_path(protocol), class: "btn btn-primary" %>
+      <%= link_to 'Delete', protocol, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
     </p>
-    <p>Journal: <%= protocol.journal %></p>
-    <div class="pull-right">
-      <p>
-        <%= link_to 'Edit', edit_protocol_path(protocol), class: "btn btn-primary" %>
-        <%= link_to 'Delete', protocol, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-      </p>
-    </div>
   </div>
 </div>
