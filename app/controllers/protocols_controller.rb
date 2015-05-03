@@ -2,7 +2,7 @@ class ProtocolsController < ApplicationController
   before_action :set_protocol, only: [:show, :edit, :update, :destroy]
 
   def index
-    @protocols = Protocol.order("created_at").page(params[:page]).per_page(10)
+    @protocols = Protocol.page(params[:page]).per_page(10).order('created_at DESC')
   end
 
   def show

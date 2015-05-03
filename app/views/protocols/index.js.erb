@@ -1,0 +1,7 @@
+$('#protocols').append('<%= j render(@protocols) %>');
+<% if @protocols.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@protocols) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>
+<% sleep 1 %>

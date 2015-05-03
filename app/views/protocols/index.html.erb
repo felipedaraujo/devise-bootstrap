@@ -1,33 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1 class="text-center">Listing Protocols</h1>
-
-<% @protocols.each do |protocol| %>
-  <div class="row">
-    <div class="container">
-      <h3><%= protocol.title %></h3>
-      <h5><strong>Author(s):</strong> <%= protocol.author %></h5>
-      <p>
-        <%= truncate(protocol.method, length: 700, omission: '... ') %>
-        <%= link_to 'read more', protocol %>
-      </p>
-      <p>Journal: <%= protocol.journal %></p>
-      <div class="pull-right">
-        <p>
-          <%= link_to 'Edit', edit_protocol_path(protocol), class: "btn btn-primary" %>
-          <%= link_to 'Delete', protocol, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-        </p>
-      </div>
-    </div>
-  </div>
-<% end %>
-
+<div id="protocols">
+  <%= render @protocols %>
+</div>
 <div class="row">
   <div class="container">
     <%= link_to 'New Protocol', new_protocol_path, class: "btn btn-primary pull-right" %>
   </div>
   <div class="container">
-    <%= will_paginate %>
+    <%= will_paginate @protocols %>
   </div>
 </div>
-
