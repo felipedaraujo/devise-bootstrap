@@ -14,9 +14,12 @@
         <li><a href="#">Log in</a></li>
         <li><a href="#">Sign up</a></li>
       </ul>
-      <form class="navbar-form navbar-right">
-        <input type="text" class="form-control" placeholder="Search...">
-      </form>
+      <%= form_tag protocols_path, method: :get, class: "navbar-form navbar-right" do %>
+        <p>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder:"Search..." %>
+          <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+        </p>
+      <% end %>
     </div>
   </div>
 </nav>
