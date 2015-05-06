@@ -2,7 +2,13 @@ class ProtocolsController < ApplicationController
   before_action :set_protocol, only: [:show, :edit, :update, :destroy]
 
   def index
-    @protocols = Protocol.search(params)
+    @protocols = 
+      if params[:query].present?
+        Protocol.search(params[:query]).records
+      else
+        Protocol.all
+      end
+    @protocols = @protocols.paginate(page: params[:page], per_page: 10)
   end
 
   def show

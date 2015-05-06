@@ -1,10 +1,17 @@
 class Protocol < ActiveRecord::Base
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
-  def self.search(params)
-    tire.search(load: true, page: params[:page], per_page: 10) do
-      query { string params[:query]} if params[:query].present?
-    end
+  def self.search(query)
+    __elasticsearch__.search(
+      {
+        query: {
+          multi_match: {
+            query: query,
+            fields: ['title^10', 'method']
+          }
+        }
+      }
+    )
   end
 end
