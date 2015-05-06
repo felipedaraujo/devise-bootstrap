@@ -14,4 +14,6 @@ class Protocol < ActiveRecord::Base
       }
     )
   end
+
+  Protocol.import
 end
