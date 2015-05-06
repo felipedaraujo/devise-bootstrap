@@ -1,5 +1,5 @@
 <div class="container">
-  <h3><%= protocol.title %></h3>
+  <h3><%= link_to protocol.title, protocol %></h3>
   <h5><strong>Author(s):</strong> <%= protocol.author %></h5>
   <p>      
     <%= shorten_method(protocol.method, protocol)%> 
