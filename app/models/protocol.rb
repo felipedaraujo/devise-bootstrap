@@ -2,6 +2,8 @@ class Protocol < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  has_one :metric
+
   def self.search(query)
     __elasticsearch__.search(
       {

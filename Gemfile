@@ -15,6 +15,7 @@ gem 'will_paginate',           '~> 3.0.7'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'nokogiri',                '~> 1.6.6.2'
 
 gem 'sdoc',                    '~> 0.4.0', group: :doc
 
