@@ -2,9 +2,10 @@ require 'open-uri'
 
 namespace :plos do
 
-  task :pathogens => :environment do
-    # Skiping data stored on the API that is not from PLOS
-    current_page = 0
+  task :pathogens, [:initial_page] => [:environment] do |t, args|
+
+    current_page = args[:initial_page].to_i
+    
     section_name = "Materials and Methods"
 
     loop do
@@ -57,7 +58,7 @@ namespace :plos do
       section_title = page.at_xpath("//h2[contains(., '#{name}')]")
       section = get_section(section_title)
 
-      journal = url.split('/')[3] 
+      journal = url.split('/')[2..3].join('/') 
 
       response = { primary_author: primary_author(authors), section: section, journal: journal}
     end
@@ -84,6 +85,7 @@ namespace :plos do
       protocol.title           = record['title']
       protocol.author          = record['author']
       protocol.journal         = record['journal']
+      protocol.source          = record['url']
       protocol.method          = record['section']
       
       metric = Metric.new(views: record['viewed'], citations: record['cited'])

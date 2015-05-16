@@ -12,7 +12,7 @@
     </p>
   <% end -%>
   
-  <p>Journal: <%= protocol.journal %></p>
+  <p>Journal: <%= link_to protocol.journal, protocol.source, target: "_blank" %></p>
   <div class="pull-right">
     <p>
       <%= link_to 'Edit', edit_protocol_path(protocol), class: "btn btn-primary" %>
