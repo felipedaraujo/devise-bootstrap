@@ -2,16 +2,19 @@
   <div class="container">
     <p id="notice"><%= notice %></p>
 
-    <h3><%= @protocol.title %></h3>
+    <h3><%= simple_format(@protocol.title) %></h3>
 
     <p>
-      <strong>Author(s):</strong>
+      <strong>Principal author:</strong>
       <%= @protocol.author %>
+        
     </p>
 
     <p>
       <strong>Method:</strong>
-      <%= simple_format(@protocol.method) %>
+      <% @protocol.method.each do |item| -%>
+        <%= simple_format(item) %>
+      <% end -%>
     </p>
 
     <p>

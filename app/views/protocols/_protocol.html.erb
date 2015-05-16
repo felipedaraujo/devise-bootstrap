@@ -1,9 +1,17 @@
 <div class="container">
-  <h3><%= link_to protocol.title, protocol %></h3>
-  <h5><strong>Author(s):</strong> <%= protocol.author %></h5>
-  <p>      
-    <%= shorten_method(protocol.method, protocol)%> 
+  <h3><%= link_to simple_format(protocol.title), protocol %></h3>
+  <h5><strong>Principal author:</strong> <%= protocol.author %></h5>
+  <p>
+    Views: <strong><%= protocol.metric.views %></strong> - 
+    Citations: <strong><%= protocol.metric.citations %></strong>
   </p>
+
+  <% paragraphs_by_subtitle(protocol.method).each do |subtitle, content| -%>
+    <p>
+      <%= simple_format("#{subtitle}: #{metric_paragraph(content)}") %>
+    </p>
+  <% end -%>
+  
   <p>Journal: <%= protocol.journal %></p>
   <div class="pull-right">
     <p>
