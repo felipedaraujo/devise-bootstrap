@@ -4,11 +4,11 @@ namespace :plos do
 
   task :pathogens => :environment do
     # Skiping data stored on the API that is not from PLOS
-    current_page = 2000
+    current_page = 0
     section_name = "Materials and Methods"
 
     loop do
-      current_page -= 1
+      current_page += 1
       
       articles_seeds = seeds(current_page)
 
@@ -56,8 +56,6 @@ namespace :plos do
       
       section_title = page.at_xpath("//h2[contains(., '#{name}')]")
       section = get_section(section_title)
-
-      puts section.map { |e| e }
 
       journal = url.split('/')[3] 
 
