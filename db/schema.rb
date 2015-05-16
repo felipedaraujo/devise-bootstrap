@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509200912) do
+ActiveRecord::Schema.define(version: 20150515174725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 20150509200912) do
 
   create_table "protocols", force: :cascade do |t|
     t.string   "title"
-    t.text     "method"
     t.string   "journal"
     t.string   "author"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "plos_id"
     t.string   "alternate_title"
+    t.string   "method",          default: [],              array: true
   end
 
 end
