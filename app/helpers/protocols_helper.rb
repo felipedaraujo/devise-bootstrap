@@ -36,12 +36,11 @@ module ProtocolsHelper
   end
 
   def metric_paragraph(content)
-    total_characters = strip_tags(content).size
+    sanitized_content = strip_tags(content)
+     
+    total_characters = sanitized_content.size
     
-    numbers = numbers_in(content)
-
-    puts total_characters.class
-    puts numbers.class
+    numbers = numbers_in(sanitized_content)
 
     percent_numbers = (( numbers.to_f * 100 ) / total_characters ).round(2)
 
