@@ -1,0 +1,24 @@
+- provide(:title, 'Protocome · Build science better, together')
+.row
+  .col-md-7
+    %h1 Build science better, together
+    %p.lead
+      Powerful collaboration, code review, and code management for open source and private projects. Public projects are always free.
+      %br
+      = link_to "Private plans start at $7/mo.", "#"
+  .col-md-5
+    = form_for @user, :url => registration_path(@user) do |f|
+      .form-group
+        = f.text_field :first_name, autofocus: true, class: "form-control input-lg", :placeholder => "First Name"
+      .form-group
+        = f.text_field :last_name, class: "form-control input-lg", :placeholder => "Last Name"
+      .form-group
+        = f.email_field :email, class: "form-control input-lg", :placeholder => "Email Address"
+      .form-group
+        = f.password_field :password, autocomplete: "off", class: "form-control input-lg", :placeholder => "Password"
+      .form-group
+        = f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg", :placeholder => "Comfirm your password"
+      %p
+        By clicking on Create an account below, you are agreeing to the #{link_to "Terms of Service", pages_terms_path} and the #{link_to "Privacy Policy", pages_privacy_path}.
+        %hr
+      = f.submit "Create an account", class: "btn btn-success btn-lg"

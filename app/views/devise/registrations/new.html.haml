@@ -1,0 +1,26 @@
+- provide(:title, 'Join Protocome · Protocome')
+.row
+  .col-md-6.col-md-offset-3
+    %h1 Join Protocome
+    = form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+      = devise_error_messages!
+      .form-group
+        = f.label :first_name, "First Name"
+        = f.text_field :first_name, autofocus: true, class: "form-control"
+      .form-group
+        = f.label :last_name, "Last Name"
+        = f.text_field :last_name, class: "form-control"
+      .form-group
+        = f.label :email, "Email Address"
+        = f.email_field :email, class: "form-control"
+      .form-group
+        = f.label :password, "Password"
+        = f.password_field :password, autocomplete: "off", class: "form-control"
+      .form-group
+        = f.label :password_confirmation, "Confirm your password"
+        = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+      %p
+        By clicking on Create an account below, you are agreeing to the #{link_to "Terms of Service", pages_terms_path} and the #{link_to "Privacy Policy", pages_privacy_path}.
+        %hr
+      = f.submit "Create an account", class: "btn btn-success"
+    = render "devise/shared/links"

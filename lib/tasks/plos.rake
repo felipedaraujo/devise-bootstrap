@@ -3,9 +3,7 @@ require 'csv'
 require 'sanitize'
 
 namespace :plos do
-
   task :methods, [:initial_page] => [:environment] do |t, args|
-
     current_page = args[:initial_page].to_i
 
     section_name = "Materials and Methods"

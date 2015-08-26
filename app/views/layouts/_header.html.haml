@@ -1,0 +1,35 @@
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to "Protocome", root_path, class: "navbar-brand"
+    #navbar-collapse.collapse.navbar-collapse
+      %form.navbar-form.navbar-left{:role => "search"}
+        .form-group
+          %input.form-control{:placeholder => "Search", :type => "text"}
+        %button.btn.btn-default{:type => "submit"} Submit
+      - if user_signed_in?
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            = link_to 'Home', root_path
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              = current_user.first_name
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "#"} Profile
+              %li.divider{:role => "separator"}
+              %li
+                = link_to 'Settings', edit_user_registration_path
+              %li
+                = link_to 'Sign out', destroy_user_session_path, method: :delete
+
+      - else
+        .navbar-nav.navbar-right
+          = link_to 'Sign up', new_user_registration_path, class: 'btn btn-success navbar-btn'
+          = link_to 'Sign in', new_user_session_path  , class: 'btn btn-default navbar-btn'
