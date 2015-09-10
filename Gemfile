@@ -18,8 +18,9 @@ gem 'elasticsearch-rails'
 gem 'nokogiri',                '~> 1.6.6.2'
 gem 'sanitize',                '~> 4.0.0'
 gem 'sdoc',                    '~> 0.4.0', group: :doc
-gem "haml-rails",              '~> 0.9'
+gem 'haml-rails',              '~> 0.9'
 gem 'devise',                  '~> 3.5.2'
+gem 'friendly_id'
 
 group :development, :test do
   gem 'byebug'

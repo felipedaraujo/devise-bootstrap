@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  authenticated :user do
+    root to: 'users#index', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root to: 'main#index'
+  end
 
   get 'pages/terms'
   get 'pages/privacy'
@@ -11,5 +17,6 @@ Rails.application.routes.draw do
                                    sign_up: "join",
                                    edit: 'settings'}
 
+  resources :users, path: '', only: [:show]
   resources :protocols
 end

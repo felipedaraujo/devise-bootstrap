@@ -22,7 +22,7 @@
               %span.caret
             %ul.dropdown-menu
               %li
-                %a{:href => "#"} Profile
+                = link_to 'Profile', user_path(current_user)
               %li.divider{:role => "separator"}
               %li
                 = link_to 'Settings', edit_user_registration_path
