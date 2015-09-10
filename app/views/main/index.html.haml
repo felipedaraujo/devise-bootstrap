@@ -1,11 +1,9 @@
-- provide(:title, 'Protocome · Build science better, together')
+- provide(:title, 'Devise Bootstrap')
 .row
   .col-md-7
-    %h1 Build science better, together
+    %h1 Devise Bootstrap
     %p.lead
-      Powerful collaboration, code review, and code management for open source and private projects. Public projects are always free.
-      %br
-      = link_to "Private plans start at $7/mo.", "#"
+      Speed your development with this sample app with devise athentication and bootstrap integration.
   .col-md-5
     = form_for @user, :url => registration_path(@user) do |f|
       .form-group
@@ -19,6 +17,6 @@
       .form-group
         = f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg", :placeholder => "Comfirm your password"
       %p
-        By clicking on Create an account below, you are agreeing to the #{link_to "Terms of Service", pages_terms_path} and the #{link_to "Privacy Policy", pages_privacy_path}.
+        By clicking on Create an account below, you are agreeing to the #{link_to "Terms of Service", main_terms_path} and the #{link_to "Privacy Policy", main_privacy_path}.
         %hr
       = f.submit "Create an account", class: "btn btn-success btn-lg"

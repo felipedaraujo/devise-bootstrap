@@ -6,10 +6,10 @@ default: &default
 
 development:
   <<: *default
-  database: protocome_development
+  database: devise_bootsttap_development
   username: <%= `whoami`.chomp %>
 
 test:
   <<: *default
-  database: protocome_test
+  database: devise_bootstrap_test
   username: <%= `whoami`.chomp %>

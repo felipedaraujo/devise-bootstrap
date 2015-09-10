@@ -77,6 +77,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'https://protocome.herokuapp.com', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'https://devise-bootstrap.herokuapp.com', port: 3000 }
   config.assets.initialize_on_precompile = false
 end

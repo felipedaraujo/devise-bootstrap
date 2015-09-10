@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  views: 1
-  citations: 1
-
-two:
-  views: 1
-  citations: 1

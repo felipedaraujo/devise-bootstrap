@@ -6,12 +6,8 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to "Protocome", root_path, class: "navbar-brand"
+      = link_to "Devise Bootstrap", root_path, class: "navbar-brand"
     #navbar-collapse.collapse.navbar-collapse
-      %form.navbar-form.navbar-left{:role => "search"}
-        .form-group
-          %input.form-control{:placeholder => "Search", :type => "text"}
-        %button.btn.btn-default{:type => "submit"} Submit
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
           %li

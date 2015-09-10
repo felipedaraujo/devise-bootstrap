@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     root to: 'main#index'
   end
 
-  get 'pages/terms'
-  get 'pages/privacy'
+  get 'main/terms'
+  get 'main/privacy'
 
   devise_for :users, path: '',
                      controllers: {registrations: 'users/registrations'},
@@ -18,5 +18,4 @@ Rails.application.routes.draw do
                                    edit: 'settings'}
 
   resources :users, path: '', only: [:show]
-  resources :protocols
 end
